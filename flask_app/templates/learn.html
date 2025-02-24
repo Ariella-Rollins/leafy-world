@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/learn.css') }}">
+    <title>Learn - Leafy World</title>
+</head>
+<body>
+    <div class="banner">
+        <h1>Leafy World</h1>
+        <div class="links">
+            <a href="/learn">Learn</a>
+            <a href="/quizzes">Take Quiz</a>
+            <a href="/forum">Community Forum</a>
+        </div>
+        <div class="logged_in">
+            <p>Welcome {{user.first_name}}!</p>
+            <a href="/profile/{{user.id}}">View Profile</a>
+            <a href="/logging_out">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>The World of Plants</h2>
+        <div class="jump">
+            <p>Jump to:</p>
+            <a href="/learn#fruits" class="jump-btns">Fruits</a>
+            <a href="/learn#flowers" class="jump-btns">Flowers</a>
+            <a href="/learn#other" class="jump-btns">Other</a>
+        </div>
+        <div id="fruits">
+            <h2 class="title one">Bizarre fruits</h2>
+            <img src="static/images/pretty-fruits/Margaritaria_nobilis.jpg" height="300px" alt="Margaritaria nobilis bastard hogberry">
+            <p>Margaritaria nobilis berries have a metallic shine!</p>
+            <hr>
+            <img src="static/images/pretty-fruits/miracle_berry.jpg" height="300px" alt="Synsepalum dulcificum miracle berry">
+            <p>(Synsepalum dulcificum) Miracle berry makes sour food taste sweet!</p>
+            <hr>
+            <img src="/static/images/pretty-fruits/akebi.jpg" alt="Akebia quinata chocolate vine akebi">
+            <p>(Akebia quinata) Chocolate vine is a sweet purple fruit shaped like a cacao pod.</p>
+        </div>
+        <div id="flowers">
+            <h2 class="title two">Beautiful Flowers</h2>
+            <div class="group">
+                <div>
+                    <img src="static/images/pretty-flowers/lipstick.jpg" alt="lipstick plant" height=350px >
+                    <p>Lipstick Plant</p>
+                </div>
+                <div>
+                    <img src="static/images/pretty-flowers/jade_vine.jpg" alt="Jade vine" height=350px>
+                    <p>Jade Vine (Strongylodon macrobotrys)</p>
+                </div>
+            </div>
+            <hr>
+            <img src="static/images/Dionysia.jpg" height="300px" alt="Dionysia_archibaldii">
+            <p>Dionysia Archibaldii</p>
+            <hr>
+            <img src="/static/images/pretty-flowers/indian_lotus.jpg" alt="indian lotus" height=350px>
+            <p>Indian Lotus</p>
+        </div>
+        <div id="other" class="other">
+            <h2 class="title three">Fasinating Features</h2>
+            <div>
+                <img src="/static/images/other/eastern_skunk_cabbage.jpg" alt="Eastern Skunk Cabbage" height=350px>
+                <p>Eastern Skunk Cabbage produces heat to melt snow and attract pollinators.</p>
+                <hr>
+            </div>
+            <div>
+                <img src="/static/images/other/monkey_flower.jpg" alt="Monkey Flower" height=350px>
+                <p>Rock-Jasmine Monkey Flower has tiny blooms!</p>
+                <hr>
+            </div>
+            <div>
+                <img src="/static/images/other/rainbow_eucalyptus.jpg" alt="rainbow eucalyptus" height=350px>
+                <p>Rainbow eucalyptus has colorful bark!</p>
+                <hr>
+            </div>
+            <div>
+                <img src="/static/images/other/bootlace_tree.jpg" alt="bootlace tree" height=350px>
+                <p>Bootlace trees have big pink beans that hang like ornaments!</p>
+            </div>
+        </div>
+        <a href="#" class="jump-btn">Back to Top</a>
+    </div>
+</body>
+</html>

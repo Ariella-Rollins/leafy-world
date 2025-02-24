@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNW Quiz</title>
+</head>
+<body>
+    <div class="banner">
+        <h1>Leafy World</h1>
+        <div class="links">
+            <a href="#">Learn</a>
+            <a href="#">Take Quiz</a>
+            <a href="#">Community Forum</a>
+        </div>
+    </div>
+    <div class="logged-in">
+        <p>Welcome {{user.first_name}}!</p>
+        <a href="/profile/{{user.id}}">View Profile</a>
+        <a href="/logging_out">Logout</a>
+    </div>
+</body>
+</html>

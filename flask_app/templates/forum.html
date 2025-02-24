@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/forum.css') }}">
+    <title>Form - Leafy World</title>
+</head>
+<body>
+    <div class="banner">
+        <h1>Leafy World</h1>
+        <div class="links">
+            <a href="/learn">Learn</a>
+            <a href="/quizzes">Take Quiz</a>
+            <a href="/forum">Community Forum</a>
+        </div>
+        <div class="logged_in">
+            <p>Welcome {{user.first_name}}!</p>
+            <a href="/profile/{{user.id}}">View Profile</a>
+            <a href="/logging_out">Logout</a>
+        </div>
+    </div>
+    
+    <h1>Community Form</h1>
+    <div class="container">
+        <div class="col1">
+            {% for post in all_posts %}
+                <div class="box1">
+                    <h2>{{post.title}}</h2>
+                    <div class="top">    
+                        <h3>{{post.author.first_name}} {{post.author.last_name}}</h3>
+                        <a href="profile/{{post.author.id}}">Profile</a>
+                        <p>{{post.date.strftime("%B %d, %Y")}}</p>
+                    </div>
+                    <p>{{post.content}}</p>
+                </div>
+                <div class="comments">
+                    {% for comment in all_comments %}
+                        {% if comment.post_id == post.id %}
+                            <div class="rect">
+                                <div class="top">
+                                    <p>{{comment.author.first_name}} {{comment.author.last_name}}</p>
+                                    <a href="profile/{{comment.creator.id}}">Profile</a>
+                                    <p>{{comment.date.strftime("%B %d, %Y")}}</p>
+                                </div>
+                                <p>{{comment.content}}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <form action="/commenting/{{post.id}}" method ="post" class="comment">
+                        <textarea name="comment" cols="45" rows="2"></textarea>
+                        <input type="submit" value="Comment" id="btn">
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col2">
+            <div>
+                <h2>Make a Post!</h2>
+                <form action="/posting" method="post" class="post">
+                    <input type="text" placeholder="Title" name="title" id="title" size="52">
+                    <textarea name="content" rows="5" cols="50" placeholder="How to care for a jade plant?" name="content" id="content"></textarea>
+                    <input type="submit" value="Post" id="btn">
+                </form>
+            </div>
+            <div>
+                <h2>Community Guidelines:</h2>
+                <ul>
+                    <li>Be Kind</li>
+                    <li>This is a Learning Environment</li>
+                    <li>No Spamming</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/quizzes.css') }}">
+    <title>Quizzes - Leafy World</title>
+</head>
+<body>
+    <div class="banner">
+        <h1>Leafy World</h1>
+        <div class="links">
+            <a href="/learn">Learn</a>
+            <a href="/quizzes">Take Quiz</a>
+            <a href="/forum">Community Forum</a>
+        </div>
+        <div class="logged_in">
+            <p>Welcome {{user.first_name}}!</p>
+            <a href="/profile/{{user.id}}">View Profile</a>
+            <a href="/logging_out">Logout</a>
+        </div>
+    </div>
+    <h2>Our world is home to over 390,000 plant species. How many can you identify?</h2>
+    <div class="container">
+        <div class="btns">
+            <form action="/quiz_General" method="post">
+                <button type="submit" class="quiz-btn grey">General quiz (100 questions)</button>
+            </form>
+            <form action="/quiz_PNW" method="post">
+                <button type=submit class="quiz-btn grey">Pacific Northwest (50 questions)</button>
+            </form>
+            <form action="/quiz_Herb">
+                <button type="submit" class="quiz-btn green">Herbs (12 questions)</button>
+            </form>
+            <form action="/quiz_Flower">
+                <button type="submit" class="quiz-btn green">Flowers (30 questions)</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

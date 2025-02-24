@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Leafy World</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/index.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <h1>Leafy World</h1>
+        <div class="links">
+            <a href="/learn">Learn</a>
+            <a href="/quizzes">Take Quiz</a>
+            <a href="/forum">Community Forum</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box1">
+            <div class="all_form">
+                <h2>Register</h2>
+                        {% with messages = get_flashed_messages(with_categories=true) %} <!-- declare a variable called messages -->
+                {% if messages %}                        <!-- check if there are any messages -->
+                    {% for category, message in messages %}
+                        {% if category=="box1" %}      <!-- loop through the messages -->
+                        <p class="flash">{{message}}</p>           <!-- display each message in a paragraph tag -->
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                        {% endwith %}
+                <form action="/registering" method="POST">
+                    <div class="pair">
+                        <label for="fname">First name:</label>
+                        <input type="text" name='fname' value="{{session['fname']}}" class="item">
+                    </div>
+                    <div class="pair">
+                        <label for="lname">Last name:</label>
+                        <input type="text" name='lname' value="{{session['lname']}}" class="item">
+                    </div>
+                    <div class="pair">
+                        <label for="email">Email:</label>
+                        <input type="text" name='email' value="{{session['email']}}" class="bmail item">
+                    </div>
+                    <div class="pair">
+                        <label for="pw">Password:</label>
+                        <input type="password" name='pw' class="item">
+                    </div>
+                    <div class="pair">
+                        <label for="cpw">Confirm password:</label>
+                        <input type="password" name='cpw' class="item">
+                    </div>
+                    <input type="submit" name="register" class="btn" value="Register">
+                
+                </form>
+            </div>
+        </div>
+
+        <div class="box2">
+            <div class="all_form">
+                <h2>Login</h2>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category == "box2" %}
+                        <p class="flash">{{message}}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                        {% endwith %}
+                <form action="/logging_in" method="POST">
+                    <div class="pair">
+                        <label for="login_email">Email:</label>
+                        <input type="text" name="login_email" value="{{session['login_email']}}" class="item">
+                    </div>
+                    <div class="pair">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" class="item">
+                    </div>
+                    <input type="submit" name="login" class="btn" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

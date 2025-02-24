@@ -1,0 +1,157 @@
+h1 {
+    text-align: center;
+    color: rgb(0, 96, 24);
+    font-size: 40px;
+}
+h1, h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+    padding: 20px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    border: 2px solid black;
+}
+
+.one {
+    background-color: rgb(174, 226, 174);
+}
+
+.two {
+    background-color: rgb(48, 166, 48);
+}
+
+.three {
+    background-color: green;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.links {
+    width: 80%;
+    padding: 20px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    border: 3px solid rgb(6, 73, 0);
+    border-radius: 20px;
+    
+}
+.links a {
+    margin-right: 5%;
+    color: lightgreen;
+    text-decoration: none;
+    
+    font-size: 20px;
+}
+
+.links a:hover {
+    color: white;
+}
+
+.logged_in {
+    display: flex;
+    width: 78%;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: end;
+    align-items: center;
+    background-color: darkseagreen;
+    border-radius: 0px 0px 20px 20px;
+}
+.logged_in > * {
+    margin-right: 20px;
+}
+
+.container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255); /* For browsers that do not support gradients */
+    background-image: linear-gradient(rgb(255, 255, 255), green, rgb(3, 35, 0));
+}
+
+
+.jump {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.jump-btns {
+    font-size: 20px;
+    color: rgb(42, 121, 171);
+    background-color:rgb(148, 214, 255);
+    border: 2px solid rgb(42, 121, 171);
+    padding: 5px;
+    text-decoration: none;
+}
+.jump-btn {
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px;
+    color:rgb(17, 195, 17);
+    background-color: rgb(0, 69, 0);
+    border: 2px solid rgb(17, 195, 17);
+    margin: 100px;
+}
+
+#fruits, #flowers, #other {
+    text-align: center;
+    width: 50%;
+    margin: 2%;
+    padding: 2%;
+    border: 2px solid black;
+}
+
+#fruits {
+    background-image: linear-gradient(darkseagreen, rgb(179, 235, 179), darkseagreen);
+}
+
+#flowers{
+    background-image: linear-gradient(green, darkseagreen, green);
+}
+
+#other {
+    background-image: linear-gradient(rgb(6, 71, 0), green, rgb(6, 71, 0));
+}
+
+#fruits>*, #flowers>*, #other>* {
+    font-size: 20px;
+}
+
+.other p {
+color: rgb(17, 195, 17);
+}
+
+img {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+hr {
+    height: 2px;
+    background-color:black;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.group{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.two > {
+    display: flex;
+    flex-direction: column;
+}

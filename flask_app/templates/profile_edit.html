@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Leafy World</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/profile.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <h1>Leafy World</h1>
+        <div class="links">
+            <a href="/learn">Learn</a>
+            <a href="/quizzes">Take Quiz</a>
+            <a href="/forum">Community Forum</a>
+        </div>
+        <div class="logged_in">
+            <p>Welcome {{user.first_name}}!</p>
+            <a href="/profile/{{user.id}}">View Profile</a>
+            <a href="/logging_out">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        
+        <div class="profile">
+            <div class="header">
+                <img src="/static/images/user.jpg" alt="none" class="icon">
+                <h2>{{profile.first_name}} {{profile.last_name}}'s Profile</h2>
+            </div>
+            <div class="col">
+                <div>
+                    <p>Member since {{ profile.date.strftime("%B %d, %Y") }}</p>
+                    <p>Recent Scores:</p>
+                    <p>Herb quiz: {{profile.herb_score}}/12</p>
+                    <p>Flower quiz: {{profile.flower_score}}/30</p>
+                </div>
+                <div>
+                    <p style="font-weight: bold;">Bio:</p>
+                    <form action="/profile/editing/{{user.id}}" method="post">
+                        <textarea name="bio" cols="30" rows="7"></textarea>
+                </div>
+            </div>
+                <div class="btn_space">
+                        <input type="submit" value="Submit" class="edit"></input>
+                    </form>
+                </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

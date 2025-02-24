@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/quizzes.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="banner">
+        <h1>Leafy World</h1>
+        <div class="links">
+            <a href="/learn">Learn</a>
+            <a href="/quizzes">Take Quiz</a>
+            <a href="/forum">Community Forum</a>
+        </div>
+        <div class="logged_in">
+            <p>Welcome {{user.first_name}}!</p>
+            <a href="/profile/{{user.id}}">View Profile</a>
+            <a href="/logging_out">Logout</a>
+        </div>
+    </div>
+    <div class="quiz">
+        <h1>{{quiz_type}} Quiz</h1>
+        <h3>Identify the Plant ({{question_number}}/{{total}})</h3>
+        <form method="Post">
+            <div class="pic">
+                <img src="{{plant['image']}}" alt="herb" height="405px">
+                <div class="under">
+                    <a href="/restart_quiz/{{quiz_type}}" class="restart">Start Over</a>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <div class="flash-message">
+                                <p>{{ messages[0] }}</p>
+                            </div>
+                        {% endif %}
+                </div>
+            </div>
+            <div class="Q">
+                {% for choice in plant["choices"] %}
+                    <div class="option">
+                        <input type="radio" name="answer" value="{{ choice }}" required>
+                        <label for="answer">{{choice}}</label>
+                    </div>
+                {% endfor %}
+                <input type="submit" value="Submit" class="quiz-btn">
+            </div>
+        </form>
+        {% endwith %}
+    </div>
+</body>
+
+</html>
